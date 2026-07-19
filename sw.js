@@ -1,4 +1,4 @@
-const CACHE_NAME = 'knowblox-cache-v4';
+const CACHE_NAME = 'knowblox-cache-v5';
 const ASSETS = [
   './',
   './index.html',
