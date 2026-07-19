@@ -1877,7 +1877,7 @@
   {
     "id": "inglaterra_bobbycharlton",
     "title": "Bobby Charlton",
-    "fact": "Leyenda del Manchester United y superviviente de Múnich. Campeón del mundo en 1966.",
+    "fact": "Caballero del deporte y uno de los mejores mediocampistas de la historia. Campeón del mundo en 1966.",
     "rarity": "legendary",
     "category": "Inglaterra",
     "color": "#eeeeee",
@@ -3624,27 +3624,27 @@
     "iso": "cup"
   },
   {
-    "id": "historia_latragediadesuperga",
-    "title": "La Tragedia de Superga",
-    "fact": "El accidente aéreo que extinguió al 'Grande Torino', el mejor equipo italiano de la época.",
+    "id": "historia_nacimientodelftbol",
+    "title": "Nacimiento del Fútbol",
+    "fact": "Se funda la Football Association en Londres, unificando las reglas y dando origen al fútbol moderno.",
     "rarity": "epic",
     "category": "Historia",
     "color": "#795548",
     "themeClass": "oro",
-    "year": 1949,
-    "achievement": "Homenaje",
+    "year": 1863,
+    "achievement": "Fundación",
     "iso": "cup"
   },
   {
-    "id": "historia_eldesastredemnich",
-    "title": "El Desastre de Múnich",
-    "fact": "Trágico accidente del Manchester United de los 'Busby Babes'. De las cenizas renació el club.",
+    "id": "historia_lacopadeeuropa",
+    "title": "La Copa de Europa",
+    "fact": "Se crea la Copa de Clubes Campeones Europeos, el torneo que hoy conocemos como la Champions League.",
     "rarity": "epic",
     "category": "Historia",
     "color": "#795548",
     "themeClass": "oro",
-    "year": 1958,
-    "achievement": "Homenaje",
+    "year": 1955,
+    "achievement": "Torneo",
     "iso": "cup"
   },
   {
@@ -3696,15 +3696,15 @@
     "iso": "cup"
   },
   {
-    "id": "historia_latragediadehillsborough",
-    "title": "La Tragedia de Hillsborough",
-    "fact": "Trágico suceso en Sheffield que reformó para siempre la seguridad en estadios del mundo.",
+    "id": "historia_mundialfemenil",
+    "title": "Mundial Femenil 1991",
+    "fact": "Se celebra en China la primera Copa del Mundo Femenina de la FIFA, consolidando el fútbol femenino.",
     "rarity": "rare",
     "category": "Historia",
     "color": "#795548",
     "themeClass": "plata",
-    "year": 1989,
-    "achievement": "Homenaje",
+    "year": 1991,
+    "achievement": "Fútbol Femenil",
     "iso": "cup"
   },
   {
@@ -3948,15 +3948,15 @@
     "iso": "cup"
   },
   {
-    "id": "historia_latragediademnich",
-    "title": "La Tragedia de Múnich 1972",
-    "fact": "El fútbol se solidariza con las víctimas olímpicas de la delegación israelí.",
+    "id": "historia_rcorddelcampnou",
+    "title": "Récord del Camp Nou",
+    "fact": "El Camp Nou bate el récord mundial de asistencia en fútbol femenino con 91,553 espectadores.",
     "rarity": "common",
     "category": "Historia",
     "color": "#795548",
     "themeClass": "bronce",
-    "year": 1972,
-    "achievement": "Homenaje",
+    "year": 2022,
+    "achievement": "Asistencia",
     "iso": "cup"
   },
   {
@@ -4328,7 +4328,7 @@
     "color": "#ffd700",
     "themeClass": "plata",
     "year": 1994,
-    "achievement": "Tragedia",
+    "achievement": "Desilusión",
     "iso": "cup"
   },
   {
@@ -4524,15 +4524,15 @@
     "iso": "cup"
   },
   {
-    "id": "mundiales_elautogoldeandrsescobar",
-    "title": "El Autogol de Andrés Escobar",
-    "fact": "La trágica eliminación de Colombia que llevó a la muerte del defensor colombiano.",
+    "id": "mundiales_elpenaldemontiel",
+    "title": "El Penal de Montiel",
+    "fact": "Gonzalo Montiel anota el penal decisivo contra Francia para coronar a Argentina campeona del mundo.",
     "rarity": "common",
     "category": "Mundiales",
     "color": "#ffd700",
     "themeClass": "bronce",
-    "year": 1994,
-    "achievement": "Tragedia",
+    "year": 2022,
+    "achievement": "Hito",
     "iso": "cup"
   },
   {
@@ -4952,7 +4952,7 @@
     "color": "#0288d1",
     "themeClass": "bronce",
     "year": 2001,
-    "achievement": "Tragedia",
+    "achievement": "Subcampeón",
     "iso": "cup"
   },
   {

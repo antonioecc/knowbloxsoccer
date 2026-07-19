@@ -196,7 +196,7 @@ addPlayer("Alemania", "Antonio Rüdiger", "DEF", 18, 2, 0, "de", 2, "common", "Z
 addPlayer("Alemania", "Marc-André ter Stegen", "POR", 0, 1, 0, "de", 22, "common", "Muro del Barcelona con excelente control de pies y reflejos mano a mano.", "bronce");
 
 // ==================== INGLATERRA (20 CARDS) ====================
-addPlayer("Inglaterra", "Bobby Charlton", "MED", 249, 1, 1, "gb-eng", 9, "legendary", "Leyenda del Manchester United y superviviente de Múnich. Campeón del mundo en 1966.", "diamante");
+addPlayer("Inglaterra", "Bobby Charlton", "MED", 249, 1, 1, "gb-eng", 9, "legendary", "Caballero del deporte y uno de los mejores mediocampistas de la historia. Campeón del mundo en 1966.", "diamante");
 addPlayer("Inglaterra", "Bobby Moore", "DEF", 27, 0, 1, "gb-eng", 6, "legendary", "Capitán ejemplar y legendario defensor alabado por Pelé como el más limpio del mundo.", "diamante");
 addPlayer("Inglaterra", "Gary Lineker", "DEL", 281, 0, 0, "gb-eng", 10, "legendary", "Goleador máximo del Mundial México 1986 y caballero del juego (nunca vio una tarjeta).", "diamante");
 addPlayer("Inglaterra", "David Beckham", "MED", 127, 1, 0, "gb-eng", 7, "epic", "Famoso por su golpeo curvo de tiros libres 'Bend it like Beckham' y sus pases largos.", "oro");
@@ -327,13 +327,13 @@ addPlayer("Europa", "Khvicha Kvaratskhelia", "DEL", 48, 0, 0, "ge", 77, "common"
 // ==================== HISTORIA (40 CARDS) ====================
 addMoment("Historia", "Reglas de Sheffield", 1857, "Primer Reglamento", "Se definieron el tiro libre indirecto, los tiros de esquina y el primer club: Sheffield FC.", "legendary");
 addMoment("Historia", "Nace la FIFA", 1904, "Fundación", "Siete países fundan en París la Federación Internacional de Fútbol Asociación.", "legendary");
-addMoment("Historia", "La Tragedia de Superga", 1949, "Homenaje", "El accidente aéreo que extinguió al 'Grande Torino', el mejor equipo italiano de la época.", "epic");
-addMoment("Historia", "El Desastre de Múnich", 1958, "Homenaje", "Trágico accidente del Manchester United de los 'Busby Babes'. De las cenizas renació el club.", "epic");
+addMoment("Historia", "Nacimiento del Fútbol", 1863, "Fundación", "Se funda la Football Association en Londres, unificando las reglas y dando origen al fútbol moderno.", "epic");
+addMoment("Historia", "La Copa de Europa", 1955, "Torneo", "Se crea la Copa de Clubes Campeones Europeos, el torneo que hoy conocemos como la Champions League.", "epic");
 addMoment("Historia", "Fútbol en TV", 1937, "Transmisión", "Primer partido de fútbol televisado de la historia: un partido de práctica del Arsenal.", "rare");
 addMoment("Historia", "El Balón de Oro", 1956, "Premio", "Creado por France Football. Stanley Matthews fue el primer ganador histórico.", "rare");
 addMoment("Historia", "Las Tarjetas Roja y Amarilla", 1970, "Arbitraje", "Propuestas por Ken Aston e inspiradas en semáforos, debutaron en el Mundial de México.", "rare");
 addMoment("Historia", "La Ley Bosman", 1995, "Fútbol Moderno", "El Tribunal de la UE autoriza el libre tránsito de jugadores comunitarios sin cupo extranjero.", "rare");
-addMoment("Historia", "La Tragedia de Hillsborough", 1989, "Homenaje", "Trágico suceso en Sheffield que reformó para siempre la seguridad en estadios del mundo.", "rare");
+addMoment("Historia", "Mundial Femenil 1991", 1991, "Fútbol Femenil", "Se celebra en China la primera Copa del Mundo Femenina de la FIFA, consolidando el fútbol femenino.", "rare");
 addMoment("Historia", "El Primer Club Femenil", 1894, "Fútbol Femenil", "Fundación del British Ladies' Football Club, pionero de las mujeres en este deporte.", "epic");
 addMoment("Historia", "Tiro Libre con Barrera", 1913, "Regla", "Se oficializa que los defensores deben situarse a 9.15 metros del balón en tiros libres.", "common");
 addMoment("Historia", "Pelota de Cuero Pesada", 1930, "Equipamiento", "Los primeros balones se cosían a mano y al mojarse duplicaban su peso original.", "common");
@@ -354,7 +354,7 @@ addMoment("Historia", "Maracaná Gigante", 1950, "Estadio Mítico", "Llegó a al
 addMoment("Historia", "El Calcio Fiorentino", 1500, "Antecedente", "Juego medieval italiano muy violento antecesor del fútbol moderno en Florencia.", "common");
 addMoment("Historia", "El Gol 1000 de Pelé", 1969, "Hito", "Pelé anota su gol número mil de penal en un estadio Maracaná que estalló de júbilo.", "epic");
 addMoment("Historia", "Fundación del Real Madrid", 1902, "Club de Leyenda", "Nace el Madrid Football Club, el equipo más laureado del siglo XX según la FIFA.", "epic");
-addMoment("Historia", "La Tragedia de Múnich 1972", 1972, "Homenaje", "El fútbol se solidariza con las víctimas olímpicas de la delegación israelí.", "common");
+addMoment("Historia", "Récord del Camp Nou", 2022, "Asistencia", "El Camp Nou bate el récord mundial de asistencia en fútbol femenino con 91,553 espectadores.", "common");
 addMoment("Historia", "Sextete del Barcelona", 2009, "Hito", "El Barça de Guardiola gana los 6 títulos posibles en un solo año natural.", "epic");
 addMoment("Historia", "Los Invencibles del Arsenal", 2004, "Hito", "El Arsenal gana la Premier League invicto con 26 victorias y 12 empates.", "epic");
 addMoment("Historia", "Leicester Campeón", 2016, "Milagro", "El modesto club inglés gana la Premier desafiando las apuestas de 5000 a 1.", "epic");
@@ -387,7 +387,7 @@ addMoment("Mundiales", "El Récord de Roger Milla", 1994, "Hito", "El camerunés
 addMoment("Mundiales", "Cinco Goles de Salenko", 1994, "Hito", "El ruso Oleg Salenko anota 5 goles en un solo partido ante Camerún.", "rare");
 addMoment("Mundiales", "Atajada de Gordon Banks", 1970, "Hito Portero", "Gordon Banks le hace a Pelé la que es calificada como 'la atajada del siglo'.", "epic");
 addMoment("Mundiales", "La tapada del Dibu", 2022, "Hito Portero", "Emiliano Martínez ataja con la pierna izquierda en el 123' el mano a mano a Kolo Muani.", "epic");
-addMoment("Mundiales", "El Penal de Baggio", 1994, "Tragedia", "Roberto Baggio vuela su penal sobre el travesaño coronando a Brasil campeón del mundo.", "rare");
+addMoment("Mundiales", "El Penal de Baggio", 1994, "Desilusión", "Roberto Baggio vuela su penal sobre el travesaño coronando a Brasil campeón del mundo.", "rare");
 addMoment("Mundiales", "El Pulpo Paul", 2010, "Curiosidad", "El pulpo que adivinó con 100% de efectividad todos los partidos de España en el Mundial.", "common");
 addMoment("Mundiales", "Camerún vence a Argentina", 1990, "Sorpresa", "Los Leones Indomables derrotan 1-0 al campeón defensor de Maradona en el debut.", "common");
 addMoment("Mundiales", "Senegal vence a Francia", 2002, "Sorpresa", "Debutante Senegal derrota al campeón reinante Francia en el partido inaugural.", "common");
@@ -404,7 +404,7 @@ addMoment("Mundiales", "El Hat-trick de Rossi", 1982, "Hito", "Paolo Rossi anota
 addMoment("Mundiales", "Corea del Sur Semifinal", 2002, "Hito", "La primera selección asiática en llegar a las semifinales de una Copa del Mundo.", "common");
 addMoment("Mundiales", "Marruecos en Semifinales", 2022, "Hito", "Marruecos se convierte en la primera selección africana de la historia en llegar a semis.", "epic");
 addMoment("Mundiales", "El Gol de Escopetazo", 1994, "Hito", "Haid Al-Owairan de Arabia Saudí dribla a toda Bélgica anotando un gol maradoniano.", "rare");
-addMoment("Mundiales", "El Autogol de Andrés Escobar", 1994, "Tragedia", "La trágica eliminación de Colombia que llevó a la muerte del defensor colombiano.", "common");
+addMoment("Mundiales", "El Penal de Montiel", 2022, "Hito", "Gonzalo Montiel anota el penal decisivo contra Francia para coronar a Argentina campeona del mundo.", "common");
 addMoment("Mundiales", "Sudáfrica 2010", 2010, "Primer Mundial en África", "El Mundial de las Vuvuzelas y el himno Waka Waka de Shakira.", "common");
 addMoment("Mundiales", "Mundial de Tres Países", 2026, "Futuro", "La primera Copa del Mundo coorganizada por tres países: EE.UU., México y Canadá.", "common");
 
@@ -441,7 +441,7 @@ addMoment("Champions League", "La Champions del Marsella", 1993, "Primer Título
 addMoment("Champions League", "El Milan de Sacchi", 1989, "Fútbol Perfecto", "Golea 4-0 al Steaua de Bucarest consolidándose como uno de los mejores de la historia.", "epic");
 addMoment("Champions League", "El Gol de Messi de Cabeza", 2009, "Hito", "Lionel Messi anota elevándose por encima de Ferdinand ganando el duelo directo a CR7.", "rare");
 addMoment("Champions League", "La Era de los Galácticos", 2002, "Hito", "El Real Madrid de Figo, Zidane, Raúl y Roberto Carlos gana la Novena.", "common");
-addMoment("Champions League", "Héctor Cúper y el Valencia", 2001, "Tragedia", "El Valencia disputa dos finales de Champions consecutivas perdiendo ambas por milímetros.", "common");
+addMoment("Champions League", "Héctor Cúper y el Valencia", 2001, "Subcampeón", "El Valencia disputa dos finales de Champions consecutivas perdiendo ambas por milímetros.", "common");
 addMoment("Champions League", "El Dortmund de 1997", 1997, "Hito", "Lars Ricken anota a los 16 segundos de ingresar a la cancha sellando el título ante la Juventus.", "rare");
 addMoment("Champions League", "El Primer Gol de Mbappé", 2017, "Hito", "Un joven Mbappé de 18 años sorprende a Europa marcando goles seguidos con el Mónaco.", "common");
 addMoment("Champions League", "La Lesión de Salah", 2018, "Polémica", "Sergio Ramos choca con Salah sacándolo del partido y condicionando la final de Kiev.", "common");
