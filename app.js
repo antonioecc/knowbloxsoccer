@@ -861,44 +861,44 @@ function openCardModal(cardId) {
     const placeholder = document.getElementById('modal-card-placeholder');
     placeholder.innerHTML = `
         <div class="detailed-card">
-            <div class="card-front ${card.rarity} ${card.themeClass}" style="transform:none; border-style:solid; display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
+            <div class="card-front ${card.rarity} ${card.themeClass}" style="border-style:solid;">
                 <div class="card-front-header">
                     <span class="card-category-tag" style="background:${card.color}">${card.category}</span>
                     <span class="card-rarity-tag">${card.rarity}</span>
                 </div>
-                <div class="card-image-container" style="height: 120px;">
+                <div class="card-image-container">
                     ${getPlayerSVG(card)}
-                    ${card.iso !== 'cup' ? `<img class="card-flag" src="https://flagcdn.com/w40/${card.iso}.png" alt="${card.category}" style="width:24px; height:18px;">` : ''}
+                    ${card.iso !== 'cup' ? `<img class="card-flag" src="https://flagcdn.com/w40/${card.iso}.png" alt="${card.category}">` : ''}
                 </div>
-                <div class="card-front-title" style="font-size:16px; margin:8px 0;">${card.title}</div>
+                <div class="card-front-title">${card.title}</div>
                 ${card.position ? `
-                <div class="card-stats-grid" style="padding:6px; margin-bottom:8px;">
+                <div class="card-stats-grid">
                     <div class="stat-item">
                         <span class="stat-label">Posición</span>
-                        <span class="stat-value" style="font-size:11px;">${card.position}</span>
+                        <span class="stat-value">${card.position}</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Goles</span>
-                        <span class="stat-value" style="font-size:11px;">${card.goals}</span>
+                        <span class="stat-value">⚽${card.goals}</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Champions</span>
-                        <span class="stat-value" style="font-size:11px;">${card.champions}</span>
+                        <span class="stat-value">🏆${card.champions}</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Mundiales</span>
-                        <span class="stat-value" style="font-size:11px;">${card.worldCups}</span>
+                        <span class="stat-value">🇪🇺${card.worldCups}</span>
                     </div>
                 </div>
                 ` : `
-                <div class="card-stats-grid" style="padding:6px; margin-bottom:8px; grid-template-columns: 1fr;">
+                <div class="card-stats-grid" style="grid-template-columns: 1fr;">
                     <div class="stat-item">
                         <span class="stat-label">Hito / Logro histórico</span>
-                        <span class="stat-value" style="font-size:12px; color:var(--accent); font-weight:800;">${card.achievement} (${card.year})</span>
+                        <span class="stat-value" style="color:var(--accent); font-weight:800;">${card.achievement} (${card.year})</span>
                     </div>
                 </div>
                 `}
-                <div class="card-front-fact" style="font-size:10px; height:auto; max-height: 60px;">${card.fact}</div>
+                <div class="card-front-fact">${card.fact}</div>
             </div>
         </div>
     `;

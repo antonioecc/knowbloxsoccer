@@ -908,56 +908,146 @@ body {
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(12px);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 100;
-    padding: 20px;
+    padding: 16px;
+    animation: modalFadeIn 0.3s ease-out forwards;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .modal-content {
     position: relative;
     width: 100%;
-    max-width: 320px;
+    max-width: 340px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: cardScaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes cardScaleIn {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
 .close-modal-btn {
-    position: absolute;
-    top: -40px;
-    right: 0;
-    background: none;
-    border: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.15);
     color: #fff;
-    font-size: 32px;
+    font-size: 24px;
     cursor: pointer;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    z-index: 110;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    animation: btnFadeIn 0.3s ease-out forwards;
+}
+
+@keyframes btnFadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.close-modal-btn:hover {
+    background: rgba(255,255,255,0.35);
+    transform: scale(1.1);
+}
+
+.close-modal-btn:active {
+    transform: scale(0.95);
 }
 
 /* Zoomed Card style */
 .detailed-card {
-    width: 100%;
-    aspect-ratio: 130/190;
-    max-width: 280px;
-    transform-style: preserve-3d;
-    transition: transform 0.1s ease;
+    width: 80vw;
+    max-width: 325px;
+    height: auto;
+    aspect-ratio: 130 / 190;
+    max-height: 82vh;
 }
 
 .detailed-card .card-front {
+    width: 100%;
+    height: 100%;
     transform: none;
-    padding: 16px;
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.detailed-card .card-front-header {
+    font-size: 11px;
+}
+
+.detailed-card .card-category-tag {
+    font-size: 10px;
+    padding: 3px 8px;
+}
+
+.detailed-card .card-rarity-tag {
+    font-size: 10px;
+}
+
+.detailed-card .card-image-container {
+    height: 140px;
+    margin: 8px 0;
+    border-radius: 10px;
+}
+
+.detailed-card .card-flag {
+    width: 28px;
+    height: 20px;
+    top: 6px;
+    right: 6px;
 }
 
 .detailed-card .card-front-title {
     font-size: 18px;
-    margin: 12px 0;
+    margin: 10px 0;
+    line-height: 1.2;
+}
+
+.detailed-card .card-stats-grid {
+    padding: 8px;
+    gap: 4px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+}
+
+.detailed-card .stat-label {
+    font-size: 9px;
+}
+
+.detailed-card .stat-value {
+    font-size: 13px;
 }
 
 .detailed-card .card-front-fact {
-    font-size: 13px;
-    line-height: 1.4;
+    font-size: 12px;
+    line-height: 1.5;
+    height: auto;
+    max-height: 80px;
+    overflow-y: auto;
 }
 
 /* FUSION MACHINE */
