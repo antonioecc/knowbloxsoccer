@@ -1,16 +1,16 @@
 {
-  "short_name": "KNOWBLOX",
-  "name": "KNOWBLOX - Álbum de Conocimiento Digital",
+  "short_name": "KNOWBLOX SOCCER",
+  "name": "KNOWBLOX SOCCER - Álbum de Estrellas del Fútbol",
   "icons": [
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/3233/3233483.png",
+      "src": "https://cdn-icons-png.flaticon.com/512/861/861506.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": "./index.html",
-  "background_color": "#090d16",
-  "theme_color": "#0f172a",
+  "background_color": "#0b291a",
+  "theme_color": "#0b291a",
   "display": "standalone",
   "orientation": "portrait"
 }
