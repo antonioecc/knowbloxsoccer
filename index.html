@@ -68,10 +68,6 @@
                 <i class="fa-solid fa-circle-question"></i>
                 <span>Trivia</span>
             </button>
-            <button class="nav-item" onclick="switchView('parent')">
-                <i class="fa-solid fa-user-shield"></i>
-                <span>DT Principal</span>
-            </button>
         </nav>
 
         <!-- TOP BAR (Status) -->
@@ -269,64 +265,6 @@
                         <p id="trivia-result-msg">Has respondido correctamente.</p>
                         <div class="coins-won-badge" id="coins-won-badge">+50 BloxCoins 🪙</div>
                         <button class="btn btn-primary" onclick="switchView('lobby')">Volver al Inicio</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 6. PARENT ZONE VIEW -->
-            <section id="view-parent" class="view hidden">
-                <!-- PIN Screen -->
-                <div id="parent-pin-lock" class="parent-pin-lock">
-                    <i class="fa-solid fa-lock parent-lock-icon"></i>
-                    <h2>Zona del DT Principal</h2>
-                    <p id="pin-prompt-text">Ingresa el PIN de seguridad de tus padres para entrar.</p>
-                    
-                    <div class="pin-dots" id="pin-dots">
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </div>
-
-                    <div class="pin-keyboard">
-                        <button class="key-btn" onclick="pressPinKey(1)">1</button>
-                        <button class="key-btn" onclick="pressPinKey(2)">2</button>
-                        <button class="key-btn" onclick="pressPinKey(3)">3</button>
-                        <button class="key-btn" onclick="pressPinKey(4)">4</button>
-                        <button class="key-btn" onclick="pressPinKey(5)">5</button>
-                        <button class="key-btn" onclick="pressPinKey(6)">6</button>
-                        <button class="key-btn" onclick="pressPinKey(7)">7</button>
-                        <button class="key-btn" onclick="pressPinKey(8)">8</button>
-                        <button class="key-btn" onclick="pressPinKey(9)">9</button>
-                        <button class="key-btn clear" onclick="clearPinKey()"><i class="fa-solid fa-delete-left"></i></button>
-                        <button class="key-btn" onclick="pressPinKey(0)">0</button>
-                        <button class="key-btn check" onclick="submitPin()"><i class="fa-solid fa-check"></i></button>
-                    </div>
-                </div>
-
-                <!-- Parental Panel -->
-                <div id="parent-panel" class="parent-panel hidden">
-                    <div class="parent-panel-header">
-                        <h2><i class="fa-solid fa-user-gear"></i> Panel del DT Principal (Padres)</h2>
-                        <button class="btn-lock-out" onclick="lockParentZone()"><i class="fa-solid fa-lock"></i> Salir</button>
-                    </div>
-
-                    <div class="parent-card">
-                        <h3>🎁 Enviar Patrocinio Especial</h3>
-                        <p>Concede a tu hijo un patrocinio de monedas especiales por su buen comportamiento.</p>
-                        <div class="reward-preview">
-                            <span>Patrocinio actual: <strong>300 BloxCoins</strong></span>
-                        </div>
-                        <button class="btn btn-claim" onclick="injectParentReward()">¡Enviar Cofre de Regalo!</button>
-                    </div>
-
-                    <div class="parent-card">
-                        <h3>🔑 Cambiar PIN de Seguridad</h3>
-                        <p>Configura una nueva clave de acceso de 4 dígitos.</p>
-                        <div class="pin-change-form">
-                            <input type="password" id="new-parent-pin" maxlength="4" placeholder="Nuevo PIN (4 números)" class="input-pin">
-                            <button class="btn btn-primary" onclick="changeParentPin()">Cambiar PIN</button>
-                        </div>
                     </div>
                 </div>
             </section>

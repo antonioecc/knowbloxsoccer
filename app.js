@@ -179,7 +179,6 @@ window.addEventListener('DOMContentLoaded', () => {
     switchView('lobby');
     setupPackRipGesture();
     updateUIHeader();
-    checkParentalGiftAlert();
     ParticleEngine.init();
     
     if (!state.profileSetupComplete) {
@@ -223,12 +222,13 @@ function checkDailyLoginBonus() {
             state.loginStreak = 1;
         }
         
-        // Bonus formula: 15 + streak * 5 (capped at 50 coins)
-        const bonus = Math.min(50, 15 + state.loginStreak * 5);
-        pendingDailyBonusCoins = bonus;
+        // Base bonus: 300 coins. Consecutive streak: +20 coins per day (capped at +100 coins)
+        const streakBonus = Math.min(100, state.loginStreak * 20);
+        const totalBonus = 300 + streakBonus;
+        pendingDailyBonusCoins = totalBonus;
         
-        document.getElementById('daily-login-text').innerText = `¡Gracias por volver a entrenar hoy! Día ${state.loginStreak} de racha.`;
-        document.getElementById('daily-login-badge').innerText = `+${bonus} BloxCoins 🪙`;
+        document.getElementById('daily-login-text').innerText = `¡Bienvenido de vuelta, DT! Tu club patrocinador te otorga tus 300 monedas de hoy para fichajes en el mercado.`;
+        document.getElementById('daily-login-badge').innerText = `+${totalBonus} BloxCoins 🪙 (Incluye +${streakBonus} por racha de ${state.loginStreak} ${state.loginStreak === 1 ? 'día' : 'días'})`;
         document.getElementById('daily-login-streak').innerText = `Racha actual: ${state.loginStreak} ${state.loginStreak === 1 ? 'día' : 'días'}`;
         
         document.getElementById('daily-login-modal').classList.remove('hidden');
@@ -292,11 +292,8 @@ function switchView(viewId) {
         renderAlbum();
     } else if (viewId === 'fusion') {
         renderFusion();
-    } else if (viewId === 'parent') {
-        initParentZone();
     } else if (viewId === 'lobby') {
         renderLobby();
-        checkParentalGiftAlert(); // Trigger immediate check when returning to lobby
     } else if (viewId === 'trivia') {
         initTriviaView();
     }
@@ -344,11 +341,7 @@ function renderLobby() {
     const remainingPacks = Math.max(0, 5 - state.dailyPacksOpened);
     const shopP = document.querySelector('.shop-card p');
     if (shopP) {
-        let extraText = "";
-        if (state.parentalPacksAllowed > 0) {
-            extraText = `<br><span style="color:#d946ef; font-size:11px; font-weight:600;"><i class="fa-solid fa-gift"></i> ¡Tienes ${state.parentalPacksAllowed} sobres extra permitidos por papá!</span>`;
-        }
-        shopP.innerHTML = `Contiene 3 cartas aleatorias<br><small style="color:var(--text-muted)">Sobres hoy: ${state.dailyPacksOpened}/5 (Quedan ${remainingPacks})${extraText}</small>`;
+        shopP.innerHTML = `Contiene 3 cartas aleatorias<br><small style="color:var(--text-muted)">Sobres hoy: ${state.dailyPacksOpened}/5 (Quedan ${remainingPacks})</small>`;
     }
 }
 
@@ -356,23 +349,6 @@ function renderLobby() {
 function updateUIHeader() {
     document.getElementById('user-level').innerText = state.level;
     document.getElementById('user-coins').innerText = state.bloxcoins;
-}
-
-// Reward Injection check
-function checkParentalGiftAlert() {
-    if (state.parentalGiftPending) {
-        document.getElementById('reward-notification').classList.remove('hidden');
-        AudioEngine.playSuccess();
-    }
-}
-
-function closeRewardNotification() {
-    state.parentalGiftPending = false;
-    state.bloxcoins += 300;
-    state.parentalPacksAllowed += 3; // Allow 3 extra packs to bypass the limit
-    saveState();
-    document.getElementById('reward-notification').classList.add('hidden');
-    AudioEngine.playClick();
 }
 
 // ----------------------------------------------------
@@ -388,12 +364,6 @@ function checkDailyPackLimit() {
         state.dailyPacksOpened = 0;
         saveState();
     }
-    
-    // Bypassed if parent gifted packs are available
-    if (state.parentalPacksAllowed > 0) {
-        return true;
-    }
-    
     return state.dailyPacksOpened < 5;
 }
 
@@ -402,20 +372,14 @@ function claimDailyPack() {
     
     if (!checkDailyPackLimit()) {
         AudioEngine.playError();
-        alert("¡Has alcanzado tu límite de 5 sobres diarios! Sigue recolectando bloques de conocimiento mañana.");
+        alert("¡Has alcanzado tu límite de 5 sobres diarios! Vuelve mañana para seguir fichando.");
         return;
     }
     
     if (state.lastDailyPack === today) return;
     
     state.lastDailyPack = today;
-    
-    if (state.dailyPacksOpened < 5) {
-        state.dailyPacksOpened += 1;
-    } else if (state.parentalPacksAllowed > 0) {
-        state.parentalPacksAllowed -= 1;
-    }
-    
+    state.dailyPacksOpened += 1;
     state.lastPackDate = today;
     saveState();
     triggerPackOpener();
@@ -424,23 +388,17 @@ function claimDailyPack() {
 function buyPack() {
     if (!checkDailyPackLimit()) {
         AudioEngine.playError();
-        alert("¡Has alcanzado tu límite de 5 sobres diarios! Sigue recolectando bloques de conocimiento mañana.");
+        alert("¡Has alcanzado tu límite de 5 sobres diarios! Vuelve mañana para seguir fichando.");
         return;
     }
 
     if (state.bloxcoins < 100) {
         AudioEngine.playError();
-        alert("¡No tienes suficientes BloxCoins! Juega a la trivia para ganar más.");
+        alert("¡No tienes suficientes BloxCoins! Juega a la trivia para ganar más monedas de patrocinio.");
         return;
     }
     state.bloxcoins -= 100;
-    
-    if (state.dailyPacksOpened < 5) {
-        state.dailyPacksOpened += 1;
-    } else if (state.parentalPacksAllowed > 0) {
-        state.parentalPacksAllowed -= 1;
-    }
-    
+    state.dailyPacksOpened += 1;
     state.lastPackDate = new Date().toDateString();
     saveState();
     triggerPackOpener();
@@ -1237,128 +1195,4 @@ function finishTrivia() {
     }
 }
 
-// ----------------------------------------------------
-// PARENT ZONE (PIN protected dashboard)
-// ----------------------------------------------------
-let parentalPinDigits = [];
 
-function initParentZone() {
-    parentalPinDigits = [];
-    updatePinDots();
-    
-    if (!state.parentalPinHash) {
-        // No PIN configured yet, ask to set one up
-        document.getElementById('pin-prompt-text').innerText = "Configura tu nuevo código PIN de 4 dígitos.";
-    } else {
-        document.getElementById('pin-prompt-text').innerText = "Ingresa tu código PIN para entrar.";
-    }
-    
-    document.getElementById('parent-pin-lock').classList.remove('hidden');
-    document.getElementById('parent-panel').classList.add('hidden');
-}
-
-function pressPinKey(num) {
-    if (parentalPinDigits.length >= 4) return;
-    parentalPinDigits.push(num);
-    AudioEngine.playClick();
-    updatePinDots();
-    
-    // Auto-submit on 4th digit
-    if (parentalPinDigits.length === 4) {
-        setTimeout(submitPin, 200);
-    }
-}
-
-function clearPinKey() {
-    parentalPinDigits.pop();
-    AudioEngine.playClick();
-    updatePinDots();
-}
-
-function updatePinDots() {
-    const dots = document.getElementById('pin-dots').children;
-    for (let i = 0; i < 4; i++) {
-        if (i < parentalPinDigits.length) {
-            dots[i].classList.add('active');
-        } else {
-            dots[i].classList.remove('active');
-        }
-    }
-}
-
-function submitPin() {
-    if (parentalPinDigits.length !== 4) return;
-    
-    const pinStr = parentalPinDigits.join('');
-    
-    // Simple SHA256 simulation using simple bit hashing (enough for frontend prototype)
-    const hash = simpleHash(pinStr);
-    
-    if (!state.parentalPinHash) {
-        // Set PIN
-        state.parentalPinHash = hash;
-        saveState();
-        AudioEngine.playSuccess();
-        alert("¡PIN configurado correctamente!");
-        showParentPanel();
-    } else if (state.parentalPinHash === hash) {
-        // Valid PIN
-        AudioEngine.playSuccess();
-        showParentPanel();
-    } else {
-        // Invalid PIN
-        AudioEngine.playError();
-        parentalPinDigits = [];
-        updatePinDots();
-        
-        // Shake screen
-        const lockScr = document.getElementById('parent-pin-lock');
-        lockScr.classList.add('shake');
-        setTimeout(() => lockScr.classList.remove('shake'), 400);
-        
-        alert("Código PIN Incorrecto.");
-    }
-}
-
-function showParentPanel() {
-    document.getElementById('parent-pin-lock').classList.add('hidden');
-    document.getElementById('parent-panel').classList.remove('hidden');
-}
-
-function lockParentZone() {
-    switchView('lobby');
-}
-
-function injectParentReward() {
-    state.parentalGiftPending = true;
-    saveState();
-    AudioEngine.playSuccess();
-    alert("¡Premio configurado! Al regresar a la pantalla principal se activará la recompensa.");
-    switchView('lobby');
-}
-
-function changeParentPin() {
-    const newPin = document.getElementById('new-parent-pin').value;
-    if (newPin.length !== 4 || isNaN(newPin)) {
-        AudioEngine.playError();
-        alert("El PIN debe tener exactamente 4 números.");
-        return;
-    }
-    
-    state.parentalPinHash = simpleHash(newPin);
-    saveState();
-    AudioEngine.playSuccess();
-    alert("PIN actualizado con éxito.");
-    document.getElementById('new-parent-pin').value = "";
-}
-
-// Quick hash function
-function simpleHash(str) {
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-        const char = str.charCodeAt(i);
-        hash = (hash << 5) - hash + char;
-        hash = hash & hash;
-    }
-    return hash.toString(16);
-}
