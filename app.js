@@ -808,6 +808,7 @@ function renderAlbum() {
                         </div>
                         <div class="card-image-container" style="height: 45px; margin: 2px 0;">
                             ${getPlayerSVG(card)}
+                            ${card.iso !== 'cup' ? `<img class="card-flag" src="https://flagcdn.com/w40/${card.iso}.png" alt="${card.category}">` : ''}
                         </div>
                         <div class="card-front-title" style="font-size:9px; margin:2px 0; font-weight:800;">${card.title}</div>
                         ${card.position ? `
@@ -859,50 +860,52 @@ function openCardModal(cardId) {
     
     const placeholder = document.getElementById('modal-card-placeholder');
     placeholder.innerHTML = `
-        <div class="detailed-card card-front ${card.rarity} ${card.themeClass}">
-            <div class="card-front-header">
-                <span class="card-category-tag" style="background:${card.color}">${card.category}</span>
-                <span class="card-rarity-tag">${card.rarity}</span>
+        <div class="detailed-card">
+            <div class="card-front ${card.rarity} ${card.themeClass}" style="transform:none; border-style:solid; display:flex; flex-direction:column; justify-content:space-between; box-sizing:border-box;">
+                <div class="card-front-header">
+                    <span class="card-category-tag" style="background:${card.color}">${card.category}</span>
+                    <span class="card-rarity-tag">${card.rarity}</span>
+                </div>
+                <div class="card-image-container" style="height: 120px;">
+                    ${getPlayerSVG(card)}
+                    ${card.iso !== 'cup' ? `<img class="card-flag" src="https://flagcdn.com/w40/${card.iso}.png" alt="${card.category}" style="width:24px; height:18px;">` : ''}
+                </div>
+                <div class="card-front-title" style="font-size:16px; margin:8px 0;">${card.title}</div>
+                ${card.position ? `
+                <div class="card-stats-grid" style="padding:6px; margin-bottom:8px;">
+                    <div class="stat-item">
+                        <span class="stat-label">Posición</span>
+                        <span class="stat-value" style="font-size:11px;">${card.position}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Goles</span>
+                        <span class="stat-value" style="font-size:11px;">${card.goals}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Champions</span>
+                        <span class="stat-value" style="font-size:11px;">${card.champions}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Mundiales</span>
+                        <span class="stat-value" style="font-size:11px;">${card.worldCups}</span>
+                    </div>
+                </div>
+                ` : `
+                <div class="card-stats-grid" style="padding:6px; margin-bottom:8px; grid-template-columns: 1fr;">
+                    <div class="stat-item">
+                        <span class="stat-label">Hito / Logro histórico</span>
+                        <span class="stat-value" style="font-size:12px; color:var(--accent); font-weight:800;">${card.achievement} (${card.year})</span>
+                    </div>
+                </div>
+                `}
+                <div class="card-front-fact" style="font-size:10px; height:auto; max-height: 60px;">${card.fact}</div>
             </div>
-            <div class="card-image-container" style="height: 120px;">
-                ${getPlayerSVG(card)}
-                ${card.iso !== 'cup' ? `<img class="card-flag" src="https://flagcdn.com/w40/${card.iso}.png" alt="${card.category}" style="width:24px; height:18px;">` : ''}
-            </div>
-            <div class="card-front-title" style="font-size:16px; margin:8px 0;">${card.title}</div>
-            ${card.position ? `
-            <div class="card-stats-grid" style="padding:6px; margin-bottom:8px;">
-                <div class="stat-item">
-                    <span class="stat-label">Posición</span>
-                    <span class="stat-value" style="font-size:11px;">${card.position}</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">Goles</span>
-                    <span class="stat-value" style="font-size:11px;">${card.goals}</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">Champions</span>
-                    <span class="stat-value" style="font-size:11px;">${card.champions}</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">Mundiales</span>
-                    <span class="stat-value" style="font-size:11px;">${card.worldCups}</span>
-                </div>
-            </div>
-            ` : `
-            <div class="card-stats-grid" style="padding:6px; margin-bottom:8px; grid-template-columns: 1fr;">
-                <div class="stat-item">
-                    <span class="stat-label">Hito / Logro histórico</span>
-                    <span class="stat-value" style="font-size:12px; color:var(--accent); font-weight:800;">${card.achievement} (${card.year})</span>
-                </div>
-            </div>
-            `}
-            <div class="card-front-fact" style="font-size:10px; height:auto; max-height: 60px;">${card.fact}</div>
         </div>
     `;
     
     // Add hologram to detailed card if legendary
     if (card.rarity === 'legendary') {
-        setupHologramEffect(placeholder.querySelector('.detailed-card'));
+        setupHologramEffect(placeholder.querySelector('.card-front'));
     }
     
     document.getElementById('card-modal').classList.remove('hidden');
